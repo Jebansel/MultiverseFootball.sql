@@ -1,0 +1,35 @@
+CREATE TABLE Player (
+  player_id INTEGER NOT NULL PRIMARY KEY,
+  name TEXT,
+  lastName TEXT,
+  team_id INTEGER NOT NULL,
+  coach_id INTEGER NOT NULL,
+  FOREIGN KEY(team_id) REFERENCES Team(team_id)
+  FOREIGN KEY(coach_id) REFERENCES Coach(coach_id)
+);
+  
+ CREATE TABLE Team (
+  team_id INTEGER NOT NULL PRIMARY KEY,
+  name TEXT,
+  tournament_name INTEGER NOT NULL,
+  FOREIGN KEY(tournament_name) REFERENCES Tournament(tournament_name)
+ );
+ 
+ CREATE TABLE Coach(
+  coach_id INTEGER NOT NULL PRIMARY KEY,
+  name TEXT,
+  lastName TEXT,
+  team_id INTEGER NOT NULL,
+  FOREIGN KEY(team_id) REFERENCES Team(team_id)
+);
+
+ CREATE TABLE Tournament(
+  tournament_name INTEGER NOT NULL PRIMARY KEY,
+  nation TEXT,
+  type_Of_Tournament INTEGER NOT NULL,
+  FOREIGN KEY(type_Of_Tournament) REFERENCES TypeOfTournament(type_Of_Tournament)
+);
+ CREATE TABLE TypeOfTournament(
+  type_Of_Tournament INTEGER NOT NULL PRIMARY KEY,
+  name TEXT
+);
