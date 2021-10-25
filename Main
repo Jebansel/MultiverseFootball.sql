@@ -33,3 +33,77 @@ CREATE TABLE Player (
   type_Of_Tournament INTEGER NOT NULL PRIMARY KEY,
   name TEXT
 );
+
+
+
+INSERT INTO Player (player_id, name, lastName, team_id, coach_id) VALUES
+(1, "Cristiano", "Ronaldo",1,5);
+INSERT INTO Player (player_id, name, lastName, team_id, coach_id) VALUES
+(2, "Mason", "Mount",4,1);
+INSERT INTO Player (player_id, name, lastName, team_id, coach_id) VALUES
+(3, "Phil", "Foden",3,4);
+INSERT INTO Player (player_id, name, lastName, team_id, coach_id) VALUES
+(4, "Marcus", "Rashford",1,5);
+INSERT INTO Player (player_id, name, lastName, team_id, coach_id) VALUES
+(5, "Mohammad", "Salah",2,3);
+
+INSERT INTO Coach (coach_id, name, lastName, team_id) VALUES
+(1, "Thomas", "Tuchel", 4);
+INSERT INTO Coach (coach_id, name, lastName, team_id) VALUES
+(2, "José", "Mourinho", 5);
+INSERT INTO Coach (coach_id, name, lastName, team_id) VALUES
+(3, "Jürgen", "Klopp", 2);
+INSERT INTO Coach (coach_id, name, lastName, team_id) VALUES
+(4, "Pep", "Guardiola", 3);
+INSERT INTO Coach (coach_id, name, lastName, team_id) VALUES
+(5, "Ole Gunnar", "Solskjær", 1);
+
+INSERT INTO Team (team_id, name, tournament_name) VALUES
+(1, "Manchester United", 1);
+ INSERT INTO Team (team_id, name, tournament_name) VALUES
+(2, "Liverpool", 1);
+INSERT INTO Team (team_id, name, tournament_name) VALUES
+(3, "Manchester City",1);
+ INSERT INTO Team (team_id, name, tournament_name) VALUES
+(4, "Chelsea",1);
+INSERT INTO Team (team_id, name, tournament_name) VALUES
+(5, "A.S. Roma",4);
+
+
+INSERT INTO Tournament (tournament_name, nation, type_Of_Tournament) VALUES
+(1, "England", 1);
+INSERT INTO Tournament (tournament_name, nation, type_Of_Tournament) VALUES
+(2, "Europe", 4);
+INSERT INTO Tournament (tournament_name, nation, type_Of_Tournament) VALUES
+(3, "England", 3);
+INSERT INTO Tournament (tournament_name, nation, type_Of_Tournament) VALUES
+(4, "Italy", 2);
+INSERT INTO Tournament (tournament_name, nation, type_Of_Tournament) VALUES
+(5, "International", 5);
+
+INSERT INTO TypeOfTournament (type_Of_Tournament, name) VALUES
+(1, "Premier League");
+INSERT INTO TypeOfTournament (type_Of_Tournament, name) VALUES
+(2, "Serie A");
+INSERT INTO TypeOfTournament (type_Of_Tournament, name) VALUES
+(3, "FA Cup");
+INSERT INTO TypeOfTournament (type_Of_Tournament, name) VALUES
+(4, "Champions League");
+INSERT INTO TypeOfTournament (type_Of_Tournament, name) VALUES
+(5, "World Cup");
+
+SELECT * FROM Coach;
+
+
+SELECT Player.name AS "Player Name", Player.lastName AS "Player Last Name", Team.name AS "Team Name", Coach.name AS "Coach Name", Coach.lastName AS "Coach Last Name" 
+FROM Player
+JOIN Team ON
+Player.team_id = Team.team_id
+JOIN Coach ON
+Player.coach_id = Coach.coach_id
+WHERE Player.name = "Cristiano"
+AND Player.lastName = "Ronaldo";
+
+
+
+
